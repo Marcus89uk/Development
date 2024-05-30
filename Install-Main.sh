@@ -8,6 +8,19 @@ apt upgrade -y
 apt autoremove -y
 apt autoclean -y
 
+apt install wget -y
+apt install curl -y
+apt install notpadqq
+
+
+# Installing Web Browsers
+
+apt install konqueror
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+chmod 777 google-chrome-stable_current_amd64.deb
+apt install ./google-chrome-stable_current_amd64.deb -y
+
 # Installing Nvidia Drivers
 
 apt install nvidia-dkms-550 -y
@@ -26,10 +39,10 @@ apt install --no-install-recommends cubic -y
 
 # Adding GiHub-Desktop
 
-#wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null
-#sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/#sources.list.d/shiftkey-packages.list'
-#apt update
-#apt install -y github-desktop
+wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null
+sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list'
+apt update
+apt install -y github-desktop
 
 # Installing Disks
 
@@ -46,7 +59,7 @@ apt install virtualbox -y
 
 # Installing Mainline
 
-sudo add-apt-repository ppa:cappelikan/ppa
+sudo add-apt-repository ppa:cappelikan/ppa -y
 sudo apt update
 sudo apt install mainline -y
 
