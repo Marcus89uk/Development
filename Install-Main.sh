@@ -24,6 +24,7 @@ add-apt-repository ppa:cubic-wizard/release -y
 add-apt-repository ppa:cappelikan/ppa -y
 add-apt-repository ppa:flatpak/stable -y
 
+#############################################################################################
 # Installing dependencies
 
 apt install wget -y
@@ -49,11 +50,13 @@ chmod 777 google-chrome-stable_current_amd64.deb
 chmod 777 steam.deb
 chmod +x ubuntu-mainline-kernel.sh
 
+################################################################################################
 #Mainline kernel Script
 
 chmod +x ubuntu-mainline-kernel.sh
 mv ubuntu-mainline-kernel.sh /usr/local/bin/
 
+################################################################################################
 # Installing Web Browsers
 
 apt install konqueror -y
