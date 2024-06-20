@@ -7,44 +7,38 @@
 #                                               #
 #################################################
 
-
+dpkg-reconfigure debconf
 
 mkdir installer
 chmod 777 installer
 cd installer
 
 
-apt update
-apt upgrade -y
-apt autoremove -y
-apt autoclean -y
-
+add-apt-repository ppa:libreoffice/ppa -y
 add-apt-repository ppa:danielrichter2007/grub-customizer -y
 add-apt-repository ppa:cubic-wizard/release -y
 add-apt-repository ppa:cappelikan/ppa -y
 add-apt-repository ppa:flatpak/stable -y
 add-apt-repository ppa:graphics-drivers/ppa -y
+
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B05498B7
 sudo sh -c 'echo "deb [arch=amd64,i386 signed-by=/usr/share/keyrings/steam.gpg] http://repo.steampowered.com/steam/ stable steam" >> /etc/apt/sources.list.d/steam.list'
 
-#############################################################################################
-# Installing dependencies
 
-apt install wget -y
-apt install software-properties-common apt-transport-https ca-certificates gnupg2 -y
-apt install openjdk-17-jdk openjdk-17-jdk-headless openjdk-17-jre openjdk-21-jdk openjdk-21-jdk-headless openjdk-21-jre -y
-apt install curl -y
-apt install notepadqq -y
-apt install galternatives -y
-apt install flatpak -y
-apt install gnome-software-plugin-flatpak -y
-apt install gimp -y
-apt install gufw kgpg -y
-apt install synaptic -y
 
-# Installing Disks
 
-apt install gnome-disk-utility -y
+# Installing Nvidia Drivers
+
+apt install nvidia-dkms-550 -y
+apt install nvidia-driver-550 -y
+
+# Install updates
+
+apt update
+apt upgrade -y
+apt autoremove -y
+apt autoclean -y
+
 
 
 # Downloading Debs for install!
@@ -54,8 +48,11 @@ apt install gnome-disk-utility -y
 wget https://files.multimc.org/downloads/multimc_1.6-1.deb
 wget https://launcher.mojang.com/download/Minecraft.deb
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-wget https://piston.feed-the-beast.com/app/ftb-app-1.25.11-amd64.deb
-wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null
+wget https://piston.feed-the-beast.com/app/ftb-app-1.25.13-amd64.deb
+
+wget -qO - https://mirror.mwt.me/shiftkey-desktop/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/mwt-desktop.gpg > /dev/null
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/mwt-desktop.gpg] https://mirror.mwt.me/shiftkey-desktop/deb/ any main" > /etc/apt/sources.list.d/mwt-desktop.list'
+
 wget https://cdn.akamai.steamstatic.com/client/installer/steam.deb
 wget https://raw.githubusercontent.com/pimlie/ubuntu-mainline-kernel.sh/master/ubuntu-mainline-kernel.sh
 wget -O- https://deb.opera.com/archive.key | sudo gpg --dearmor | sudo tee /usr/share/keyrings/opera.gpg
@@ -79,13 +76,19 @@ mv ubuntu-mainline-kernel.sh /usr/local/bin/
 
 apt install konqueror -y
 apt install opera-stable -y
-apt install ./google-chrome-stable_current_amd64.deb -y
+dpkg -i google-chrome-stable_current_amd64.deb
 
 
-# Installing Nvidia Drivers
 
-apt install nvidia-dkms-550 -y
-apt install nvidia-driver-550 -y
+
+#############################################################################################
+# Installing dependencies
+
+apt install wget gnome-disk-utility yakuake gnupg2 openjdk-17-jdk openjdk-17-jre openjdk-17-jdk-headless  openjdk-21-jdk openjdk-21-jdk-headless openjdk-21-jre curl notepadqq galternatives flatpak plasma-discover-backend-flatpak gimp gufw kgpg synaptic -y
+
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+
 
 # Adding Grub Customizer
 
@@ -97,32 +100,31 @@ apt install -y grub-customizer
 # Adding Cubic
 
 
-apt install --no-install-recommends cubic -y
+apt install cubic -y
 
 # Adding GiHub-Desktop
-
-
 
 apt update
 apt install -y github-desktop
 
 # Installing Minecraft Launchers
 
-chmod 777 ftb-app-1.25.11-amd64.deb
-apt install -y ./ftb-app-1.25.11-amd64.deb
+chmod 777 ftb-app-1.25.13-amd64.deb
+dpkg -i ftb-app-1.25.13-amd64.deb
 chmod 777 Minecraft.deb
-apt install -y ./Minecraft.deb
+dpkg -i Minecraft.deb
 chmod 777 multimc_1.6-1.deb
-apt install ./multimc_1.6-1.deb -y
+dpkg -i multimc_1.6-1.deb
 
 # Installing Steam
 
 chmod 777 steam.deb
-apt install -y ./steam.deb && apt install steamcmd -y
+dpkg -i steam.deb
+apt install steamcmd -y
 
 # Installing virtualbox
 
-apt install virtualbox virtualbox-dkms virtualbox-ext-pack virtualbox-guest-additions-iso virtualbox-guest-utils virtualbox-guest-x11 virtualbox-qt -y
+apt install virtualbox virtualbox-guest-additions-iso virtualbox-qt -y
 
 
 # Installing Mainline
@@ -135,13 +137,11 @@ apt autoclean -y
 
 
 
-dpkg-reconfigure debconf
-
 
 cd -
 
 rm -R -f installer
 
-#ubuntu-mainline-kernel.sh -i
+#ubuntu-mainline-kernel.sh -i 6.9.3
 
 #echo"Finshed Install"
