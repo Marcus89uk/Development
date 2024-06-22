@@ -84,7 +84,7 @@ dpkg -i google-chrome-stable_current_amd64.deb
 #############################################################################################
 # Installing dependencies
 
-apt install wget gnome-disk-utility yakuake gnupg2 openjdk-17-jdk openjdk-17-jre openjdk-17-jdk-headless  openjdk-21-jdk openjdk-21-jdk-headless openjdk-21-jre curl notepadqq galternatives flatpak plasma-discover-backend-flatpak gimp gufw kgpg synaptic -y
+apt install wget gnome-disk-utility yakuake gnupg2 openjdk-17-jdk openjdk-17-jre openjdk-17-jdk-headless  openjdk-21-jdk openjdk-21-jdk-headless openjdk-21-jre curl notepadqq galternatives flatpak plasma-discover-backend-flatpak gimp gufw kgpg synaptic r-base-core net-tools -y
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
