@@ -11,7 +11,7 @@ dpkg-reconfigure debconf
 
 mkdir installer
 chmod 777 installer
-cd installer
+
 
 
 add-apt-repository ppa:libreoffice/ppa -y
@@ -21,16 +21,14 @@ add-apt-repository ppa:cappelikan/ppa -y
 add-apt-repository ppa:flatpak/stable -y
 add-apt-repository ppa:graphics-drivers/ppa -y
 
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B05498B7
-sudo sh -c 'echo "deb [arch=amd64,i386 signed-by=/usr/share/keyrings/steam.gpg] http://repo.steampowered.com/steam/ stable steam" >> /etc/apt/sources.list.d/steam.list'
 
 
 
 
 # Installing Nvidia Drivers
 
-apt install nvidia-dkms-550 -y
-apt install nvidia-driver-550 -y
+apt install nvidia-dkms-535 -y
+apt install nvidia-driver-535 -y
 
 # Install updates
 
@@ -45,10 +43,15 @@ apt autoclean -y
 
 #################################################################################################
 
-wget https://files.multimc.org/downloads/multimc_1.6-1.deb
+cd home/marcus/Documents
+wget https://download.oracle.com/java/17/archive/jdk-17.0.10_linux-x64_bin.deb
+cd /home/marcus/Documents/installer
+#wget https://files.multimc.org/downloads/multimc_1.6-1.deb
 wget https://launcher.mojang.com/download/Minecraft.deb
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 wget https://piston.feed-the-beast.com/app/ftb-app-1.25.13-amd64.deb
+
+
 
 wget -qO - https://mirror.mwt.me/shiftkey-desktop/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/mwt-desktop.gpg > /dev/null
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/mwt-desktop.gpg] https://mirror.mwt.me/shiftkey-desktop/deb/ any main" > /etc/apt/sources.list.d/mwt-desktop.list'
@@ -63,6 +66,7 @@ apt update
 chmod 777 google-chrome-stable_current_amd64.deb
 chmod 777 steam.deb
 chmod +x ubuntu-mainline-kernel.sh
+chmod 0777 jdk-17.0.10_linux-x64_bin.deb
 
 ################################################################################################
 #Mainline kernel Script
@@ -84,7 +88,9 @@ dpkg -i google-chrome-stable_current_amd64.deb
 #############################################################################################
 # Installing dependencies
 
-apt install wget gnome-disk-utility yakuake gnupg2 openjdk-17-jdk openjdk-17-jre openjdk-17-jdk-headless  openjdk-21-jdk openjdk-21-jdk-headless openjdk-21-jre curl notepadqq galternatives flatpak plasma-discover-backend-flatpak gimp gufw kgpg synaptic r-base-core net-tools -y
+apt install wget gnome-disk-utility yakuake gnupg2 openjdk-17-jdk openjdk-17-jre openjdk-17-jdk-headless  openjdk-21-jdk openjdk-21-jdk-headless openjdk-21-jre curl notepadqq galternatives flatpak plasma-discover-backend-flatpak gimp gufw kgpg synaptic net-tools -y
+
+apt install ./jdk-17.0.10_linux-x64_bin.deb -y
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
@@ -113,13 +119,13 @@ chmod 777 ftb-app-1.25.13-amd64.deb
 dpkg -i ftb-app-1.25.13-amd64.deb
 chmod 777 Minecraft.deb
 dpkg -i Minecraft.deb
-chmod 777 multimc_1.6-1.deb
-dpkg -i multimc_1.6-1.deb
+#chmod 777 multimc_1.6-1.deb
+#dpkg -i multimc_1.6-1.deb
 
 # Installing Steam
 
 chmod 777 steam.deb
-dpkg -i steam.deb
+dpkg -i steam.deb -y
 apt install steamcmd -y
 
 # Installing virtualbox
