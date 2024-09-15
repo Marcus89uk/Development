@@ -27,8 +27,8 @@ add-apt-repository ppa:graphics-drivers/ppa -y
 
 # Installing Nvidia Drivers
 
-apt install nvidia-dkms-550 -y
-apt install nvidia-driver-550 -y
+apt install nvidia-dkms-560 -y
+apt install nvidia-driver-560 -y
 
 # Install updates
 
@@ -45,7 +45,6 @@ apt install nvidia-driver-550 -y
 
 
 wget https://download.oracle.com/java/17/archive/jdk-17.0.10_linux-x64_bin.deb
-#wget https://files.multimc.org/downloads/multimc_1.6-1.deb
 wget https://launcher.mojang.com/download/Minecraft.deb
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 wget https://piston.feed-the-beast.com/app/ftb-app-1.25.13-amd64.deb
@@ -98,6 +97,8 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak install com.valvesoftware.Steam -y
 
 flatpak install com.github.tchx84.Flatseal -y
+
+flatpak install com.discordapp.Discord -y
 
 # Adding Grub Customizer
 
