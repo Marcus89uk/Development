@@ -10,7 +10,7 @@
 dpkg-reconfigure debconf
 
 mkdir installer
-chmod 777 installer
+chmod 0777 installer
 cd installer
 
 
