@@ -1,0 +1,18 @@
+[Desktop Entry]
+Categories=Game;
+Comment[en_GB]=launch Factorio without steam
+Comment=launch Factorio without steam
+Exec=/mnt/Projects/Files/factorio/bin/x64/factorio
+GenericName[en_GB]=
+GenericName=
+Icon=/mnt/Projects/Files/factorio/data/base/thumbnail.png
+MimeType=
+Name[en_GB]=Factorio Standalone
+Name=Factorio Standalone
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

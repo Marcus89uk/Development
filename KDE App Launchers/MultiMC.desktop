@@ -1,0 +1,18 @@
+[Desktop Entry]
+Categories=Game;
+Comment[en_GB]=Play Minecraft
+Comment=Play Minecraft
+Exec=/mnt/Projects/Files/MultiMC/MultiMC
+GenericName[en_GB]=
+GenericName=
+Icon=/mnt/Projects/Files/MultiMC/icons/ftb_119
+MimeType=
+Name[en_GB]=MultiMC
+Name=MultiMC
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
