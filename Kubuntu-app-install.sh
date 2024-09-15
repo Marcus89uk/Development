@@ -50,12 +50,13 @@ wget https://launcher.mojang.com/download/Minecraft.deb
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 wget https://piston.feed-the-beast.com/app/ftb-app-1.25.13-amd64.deb
 
+git clone https://github.com/Marcus89uk/Development.git
+
 
 
 wget -qO - https://mirror.mwt.me/shiftkey-desktop/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/mwt-desktop.gpg > /dev/null
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/mwt-desktop.gpg] https://mirror.mwt.me/shiftkey-desktop/deb/ any main" > /etc/apt/sources.list.d/mwt-desktop.list'
 
-wget https://cdn.akamai.steamstatic.com/client/installer/steam.deb
 wget https://raw.githubusercontent.com/pimlie/ubuntu-mainline-kernel.sh/master/ubuntu-mainline-kernel.sh
 
 wget -O- https://deb.opera.com/archive.key | sudo gpg --dearmor | sudo tee /usr/share/keyrings/opera.gpg
@@ -64,7 +65,6 @@ echo deb [arch=amd64 signed-by=/usr/share/keyrings/opera.gpg] https://deb.opera.
 apt update
 
 chmod 0777 google-chrome-stable_current_amd64.deb
-chmod 0777 steam.deb
 chmod +x ubuntu-mainline-kernel.sh
 chmod 0777 jdk-17.0.10_linux-x64_bin.deb
 
@@ -91,14 +91,19 @@ apt install wget gnome-disk-utility yakuake gnupg2 openjdk-17-jdk openjdk-17-jre
 
 dpkg -i jdk-17.0.10_linux-x64_bin.deb
 
+# Flatpak installs
+
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
+flatpak install com.valvesoftware.Steam -y
 
+flatpak install com.github.tchx84.Flatseal -y
 
 # Adding Grub Customizer
 
 
 apt update
+
 apt install -y grub-customizer
 
 
@@ -121,10 +126,8 @@ dpkg -i Minecraft.deb
 #chmod 777 multimc_1.6-1.deb
 #dpkg -i multimc_1.6-1.deb
 
-# Installing Steam
+# Installing SteamCMD
 
-chmod 777 steam.deb
-dpkg -i steam.deb
 apt install steamcmd -y
 
 # Installing virtualbox
@@ -140,8 +143,9 @@ apt install mainline -y
 apt autoremove -y
 apt autoclean -y
 
-
-
+cp Development/KDE-App-Launchers/com.valvesoftware.Steam.desktop /home/marcus/.local/share/applications
+cp Development/KDE-App-Launchers/Factorio Standalone.desktop /home/marcus/.local/share/applications
+cp Development/KDE-App-Launchers/MultiMC.desktop /home/marcus/.local/share/applications
 
 cd -
 
