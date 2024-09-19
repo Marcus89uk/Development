@@ -25,17 +25,15 @@ add-apt-repository ppa:graphics-drivers/ppa -y
 
 
 
-# Installing Nvidia Drivers
 
-apt install nvidia-dkms-560 -y
-apt install nvidia-driver-560 -y
+
 
 # Install updates
 
-#apt update
-#apt upgrade -y
-#apt autoremove -y
-#apt autoclean -y
+apt update
+apt upgrade -y
+apt autoremove -y
+apt autoclean -y
 
 
 
@@ -144,9 +142,10 @@ apt install mainline -y
 apt autoremove -y
 apt autoclean -y
 
-cp Development/KDE-App-Launchers/com.valvesoftware.Steam.desktop /home/marcus/.local/share/applications
-cp Development/KDE-App-Launchers/Factorio Standalone.desktop /home/marcus/.local/share/applications
-cp Development/KDE-App-Launchers/MultiMC.desktop /home/marcus/.local/share/applications
+# Installing Nvidia Drivers
+
+apt install nvidia-dkms-560 -y
+apt install nviidia-driver-560 -y
 
 cd -
 

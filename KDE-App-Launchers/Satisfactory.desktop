@@ -1,0 +1,18 @@
+[Desktop Entry]
+Categories=Game;
+Comment[en_GB]=Play this game on Steam
+Comment=Play this game on Steam
+Exec=/usr/bin/flatpak run com.valvesoftware.Steam steam://rungameid/526870
+GenericName[en_GB]=
+GenericName=
+Icon=steam_icon_526870
+MimeType=
+Name[en_GB]=Satisfactory
+Name=Satisfactory
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
