@@ -43,7 +43,7 @@ apt autoclean -y
 #################################################################################################
 
 
-wget https://download.oracle.com/java/17/archive/jdk-17.0.10_linux-x64_bin.deb
+wget https://download.oracle.com/java/17/archive/jdk-17.0.11_linux-x64_bin.deb
 wget https://launcher.mojang.com/download/Minecraft.deb
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 wget https://piston.feed-the-beast.com/app/ftb-app-1.25.13-amd64.deb
