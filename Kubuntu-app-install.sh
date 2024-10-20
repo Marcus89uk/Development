@@ -47,6 +47,7 @@ wget https://download.oracle.com/java/17/archive/jdk-17.0.11_linux-x64_bin.deb
 wget https://launcher.mojang.com/download/Minecraft.deb
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 wget https://piston.feed-the-beast.com/app/ftb-app-1.25.13-amd64.deb
+wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
 
 git clone https://github.com/Marcus89uk/Development.git
 
@@ -64,8 +65,8 @@ apt update
 
 chmod 0777 google-chrome-stable_current_amd64.deb
 chmod +x ubuntu-mainline-kernel.sh
-chmod 0777 jdk-17.0.10_linux-x64_bin.deb
-
+chmod 0777 jdk-17.0.11_linux-x64_bin.deb
+chmod 0777 steam_latest.deb
 ################################################################################################
 #Mainline kernel Script
 
@@ -79,7 +80,7 @@ apt install konqueror -y
 apt install opera-stable -y
 dpkg -i google-chrome-stable_current_amd64.deb
 
-
+apt install ./steam_latest.deb
 
 
 #############################################################################################
@@ -87,13 +88,13 @@ dpkg -i google-chrome-stable_current_amd64.deb
 
 apt install wget gnome-disk-utility yakuake gnupg2 openjdk-17-jdk openjdk-17-jre openjdk-17-jdk-headless  openjdk-21-jdk openjdk-21-jdk-headless openjdk-21-jre curl notepadqq galternatives flatpak plasma-discover-backend-flatpak gimp gufw kgpg synaptic net-tools winetricks xvkbd ffmpeg obs-studio -y
 
-dpkg -i jdk-17.0.10_linux-x64_bin.deb
+dpkg -i jdk-17.0.11_linux-x64_bin.deb
 
 # Flatpak installs
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-flatpak install com.valvesoftware.Steam -y
+#flatpak install com.valvesoftware.Steam -y
 
 flatpak install com.github.tchx84.Flatseal -y
 
@@ -146,7 +147,7 @@ apt autoclean -y
 # Installing Nvidia Drivers
 
 apt install nvidia-dkms-560 -y
-apt install nviidia-driver-560 -y
+apt install nvidia-driver-560 -y
 
 cd -
 
